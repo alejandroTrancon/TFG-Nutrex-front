@@ -1,0 +1,53 @@
+<div>
+    <mat-toolbar color="primary">
+        <!-- <button mat-icon-button><mat-icon>menu</mat-icon></button> -->
+        <button mat-button>
+            <h1 class="app-name">Nutrex</h1>
+        </button>
+
+        <div fxFlex fxLayout="row" fxLayoutAlign="space-evenly">
+            <button mat-button [routerLink]="nav.route" *ngFor="let nav of menuNav">
+                
+                <mat-icon>{{ nav.icon }}</mat-icon>
+                {{nav.name}}
+                
+            </button>
+            
+        </div>
+
+        <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
+            <ul fxLayout="row" fxLayoutGap="20px">
+                <li>
+                    <button mat-icon-button>
+                        <mat-icon>help</mat-icon>
+                    </button>
+                </li>
+                <li>
+                    <button mat-icon-button [matMenuTriggerFor]="menu">
+                        <mat-icon>person-outline</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu">
+                        <p mat-menu-item>
+                            <mat-icon>face</mat-icon>
+                            Alejandro Trancón González
+                        </p>
+                        <p mat-menu-item>
+                            <mat-icon></mat-icon>
+                            Administrador
+                        </p>
+                        <button mat-menu-item>
+                            <mat-icon>exit_to_app</mat-icon>
+                            Cerrar sesion
+                        </button>
+                    </mat-menu>
+                    
+                </li>
+                
+
+            </ul>
+        </div>
+
+    </mat-toolbar>
+
+    <router-outlet></router-outlet>
+</div>
