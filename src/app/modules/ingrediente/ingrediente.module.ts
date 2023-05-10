@@ -5,12 +5,14 @@ import { MaterialModule } from '../shared/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { bootstrapApplication } from '@angular/platform-browser';
+import { AddIngredienteComponent } from './components/add-ingrediente/add-ingrediente.component';
 
 
 
 @NgModule({
   declarations: [
-    IngredienteComponent
+    IngredienteComponent,
+    AddIngredienteComponent
   ],
   imports: [
     CommonModule,

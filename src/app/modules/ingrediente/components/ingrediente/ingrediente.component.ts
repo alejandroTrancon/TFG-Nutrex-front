@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component } from '@angular/core';7
 import { MatTableDataSource } from '@angular/material/table';
 import { IngredienteInterface } from 'src/app/modules/shared/interfaces/ingrediente.interface';
 import { IngredienteService } from 'src/app/modules/shared/services/ingrediente.service';
+import { AddIngredienteComponent } from '../add-ingrediente/add-ingrediente.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-ingrediente',
@@ -9,7 +11,7 @@ import { IngredienteService } from 'src/app/modules/shared/services/ingrediente.
   styleUrls: ['./ingrediente.component.css']
 })
 export class IngredienteComponent {
-  constructor(private ingredienteService: IngredienteService) {
+  constructor(private ingredienteService: IngredienteService, public dialog: MatDialog) {
 
   }
 
@@ -43,6 +45,16 @@ export class IngredienteComponent {
       this.dataSource = new MatTableDataSource<IngredienteInterface>(DATA_INGREDIENTE);
     }
 
+  }
+
+  openIngredienteDialog(){
+    const dialogRef = this.dialog.open(AddIngredienteComponent , {
+      width: '500px'
+    });
+
+    dialogRef.afterClosed().subscribe((result: any) => {
+
+    });
   }
 
 }
