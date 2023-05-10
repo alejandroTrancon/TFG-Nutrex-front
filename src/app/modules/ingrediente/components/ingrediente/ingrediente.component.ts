@@ -4,6 +4,7 @@ import { IngredienteInterface } from 'src/app/modules/shared/interfaces/ingredie
 import { IngredienteService } from 'src/app/modules/shared/services/ingrediente.service';
 import { AddIngredienteComponent } from '../add-ingrediente/add-ingrediente.component';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar, MatSnackBarRef, SimpleSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-ingrediente',
@@ -11,7 +12,8 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./ingrediente.component.css']
 })
 export class IngredienteComponent {
-  constructor(private ingredienteService: IngredienteService, public dialog: MatDialog) {
+  constructor(private ingredienteService: IngredienteService, public dialog: MatDialog,
+              private snackBar: MatSnackBar) {
 
   }
 
@@ -53,8 +55,18 @@ export class IngredienteComponent {
     });
 
     dialogRef.afterClosed().subscribe((result: any) => {
-
+      if(result == 1){
+        this.openSnackBar("Ingrediente agregado", "Success");
+        this.listIngredientes();
+      }else if(result == 2){
+        this.openSnackBar("Ingrediente no agregado", "Error");
+      }
     });
+  }
+
+  openSnackBar(message: string, action: string): MatSnackBarRef<SimpleSnackBar>{
+    return this.snackBar.open(message, action);
+    duration: 2000
   }
 
 }
