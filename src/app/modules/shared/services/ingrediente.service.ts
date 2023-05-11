@@ -27,6 +27,16 @@ export class IngredienteService {
     return this.http.post(END_POINT, body);
   }
 
+  /**
+   * 
+   * @param body 
+   * @param id 
+   */
+  updateIngrediente(body: any, id:any){
+    const END_POINT = `${BASE_URL}/Ingredientes/${id}`;
+    return this.http.put(END_POINT, body);
+  }
+
 
 
 }

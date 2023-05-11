@@ -1,3 +1,5 @@
+import { Timestamp } from "rxjs";
+
 export interface IngredienteInterface{
     id?: number;
     nombre: string;

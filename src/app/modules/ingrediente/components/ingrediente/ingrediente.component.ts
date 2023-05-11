@@ -64,9 +64,25 @@ export class IngredienteComponent {
     });
   }
 
+  edit(element: IngredienteInterface){
+    const dialogRef = this.dialog.open(AddIngredienteComponent , {
+      width: '500px',
+      data: element
+    });
+
+    dialogRef.afterClosed().subscribe((result: any) => {
+      if(result == 1){
+        this.openSnackBar("Ingrediente actualizado", "Success");
+        this.listIngredientes();
+      }else if(result == 2){
+        this.openSnackBar("Ingrediente no actualizado", "Error");
+      }
+    });
+  }
+
   openSnackBar(message: string, action: string): MatSnackBarRef<SimpleSnackBar>{
     return this.snackBar.open(message, action);
-    duration: 2000
+    duration: 2000;
   }
 
 }
