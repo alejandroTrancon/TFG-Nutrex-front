@@ -5,7 +5,7 @@
         <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
             <mat-form-field appearance="fill">
                 <mat-label>Buscar ingrediente</mat-label>
-                <input matInput #input>
+                <input matInput #input (keyup)="buscar(input.value)">
             </mat-form-field>
             <ul fxLayout="row" fxLayoutGap="20px" type="none">
                 <li>
@@ -19,51 +19,51 @@
     <mat-card-content>
         <table mat-table [dataSource]="dataSource">
 
-            <ng-container matColumnDef="id">
+            <ng-container matColumnDef="n">
                 <th mat-header-cell *matHeaderCellDef class="alinear">Nº</th>
-                <td mat-cell *matCellDef="let i=index">{{ i+1 }}</td>
+                <td mat-cell *matCellDef="let i=index" class="alinear">{{ i+1 }}</td>
             </ng-container>
 
             <ng-container matColumnDef="nombre">
                 <th mat-header-cell *matHeaderCellDef class="alinear">Nombre</th>
-                <td mat-cell *matCellDef="let element">{{ element.nombre }}</td>
+                <td mat-cell *matCellDef="let element" class="alinear">{{ element.nombre }}</td>
             </ng-container>
 
             <ng-container matColumnDef="hidratos">
                 <th mat-header-cell *matHeaderCellDef class="alinear">Hidratos</th>
-                <td mat-cell *matCellDef="let element">{{ element.hidratos }}</td>
+                <td mat-cell *matCellDef="let element" class="alinear">{{ element.hidratos }}</td>
             </ng-container>
 
             <ng-container matColumnDef="proteinas">
                 <th mat-header-cell *matHeaderCellDef class="alinear">Proteinas</th>
-                <td mat-cell *matCellDef="let element">{{ element.proteinas }}</td>
+                <td mat-cell *matCellDef="let element" class="alinear">{{ element.proteinas }}</td>
             </ng-container>
 
             <ng-container matColumnDef="grasas">
                 <th mat-header-cell *matHeaderCellDef class="alinear">Grasas</th>
-                <td mat-cell *matCellDef="let element">{{ element.grasas }}</td>
+                <td mat-cell *matCellDef="let element" class="alinear">{{ element.grasas }}</td>
             </ng-container>
 
             <ng-container matColumnDef="sal">
                 <th mat-header-cell *matHeaderCellDef class="alinear">Sal</th>
-                <td mat-cell *matCellDef="let element">{{ element.sal }}</td>
+                <td mat-cell *matCellDef="let element" class="alinear">{{ element.sal }}</td>
             </ng-container>
 
             <ng-container matColumnDef="fibra">
                 <th mat-header-cell *matHeaderCellDef class="alinear">Fibra</th>
-                <td mat-cell *matCellDef="let element">{{ element.fibra }}</td>
+                <td mat-cell *matCellDef="let element" class="alinear">{{ element.fibra }}</td>
             </ng-container>
 
             <ng-container matColumnDef="acciones">
                 <th mat-header-cell *matHeaderCellDef class="alinear">Acciones</th>
                 <td mat-cell *matCellDef="let element; let i=index" class="alinear">
-                    <button mat-icon-button color="accent">
+                    <!-- <button mat-icon-button color="accent">
                         <mat-icon aria-label="Ver">remove_red_eye</mat-icon>
-                    </button>
+                    </button> -->
                     <button mat-icon-button color="accent" (click)="edit(element)">
                         <mat-icon aria-label="Editar">edit</mat-icon>
                     </button>
-                    <button mat-icon-button color="accent">
+                    <button mat-icon-button color="accent" (click)="delete(element.id)">
                         <mat-icon aria-label="Borrar">delete</mat-icon>
                     </button>
                 </td>
@@ -74,6 +74,6 @@
             <tr mat-row *matRowDef="let row; columns: displayColumns;"></tr>
         </table>
 
-        <mat-paginator [pageSizeOptions]="[5,10,20]" [showFirstLastButtons]></mat-paginator>
+        <mat-paginator [pageSizeOptions]="[10,20]" [showFirstLastButtons]></mat-paginator>
     </mat-card-content>
 </mat-card>

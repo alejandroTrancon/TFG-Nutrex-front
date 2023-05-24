@@ -2,7 +2,7 @@ import { ContentObserver } from '@angular/cdk/observers';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { IngredienteService } from 'src/app/modules/shared/services/ingrediente.service';
+import { IngredienteService } from 'src/app/modules/shared/services/ingrediente/ingrediente.service';
 
 @Component({
   selector: 'app-add-ingrediente',
