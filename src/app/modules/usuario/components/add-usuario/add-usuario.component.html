@@ -1,0 +1,49 @@
+<h1 mat-dialog-title>{{estadoFormulario}} usuario</h1>
+<mat-dialog-content>
+    <form [formGroup]="usuarioForm">
+        <div class="container">
+            <input matInput formControlName="id" hidden>
+            <mat-form-field>
+                <input matInput placeholder="Nombre" formControlName="nombre" required/>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="Apellidos" formControlName="apellidos" required/>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="Email" formControlName="email" required/>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="Teléfono" formControlName="telefono" required/>
+            </mat-form-field>
+
+            <div fxFlex fxLayout="row" fxLayoutAlign="space-around center">
+                <mat-checkbox labelPosition="after" color="primary" formControlName="activo">Activo</mat-checkbox>
+
+                <mat-checkbox labelPosition="after" color="primary" formControlName="bloqueado">Bloqueado</mat-checkbox>
+            </div>
+            
+
+            <mat-form-field>
+                <mat-label>Rol</mat-label>
+                <mat-select formControlName="rol">
+                    <mat-option *ngFor="let rol of roles" [value]="rol.id">
+                        {{rol.rol}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>            
+        </div>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-button color="primary" (click)="onSave()" [disabled]="usuarioForm.invalid">
+        <mat-icon>save</mat-icon> Guardar
+    </button>
+
+    <button mat-button color="primary" (click)="onCancel()">
+        <mat-icon>cancel</mat-icon> Cancel
+    </button>
+</mat-dialog-actions>

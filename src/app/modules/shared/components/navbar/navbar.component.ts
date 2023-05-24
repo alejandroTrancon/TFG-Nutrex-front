@@ -14,6 +14,7 @@ export class NavbarComponent implements OnInit {
   menuNav = [
     {name: "Comidas", route: "comidas", icon: "fastfood"},
     {name: "Ingredientes", route: "ingredientes", icon: "category"},
+    {name: "Usuarios", route: "usuarios", icon: "person-outline"},
     // {name: "", route: "", icon: ""},
   ]
 

@@ -5,6 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { IngredienteModule } from '../ingrediente/ingrediente.module';
+import { UsuarioModule } from '../usuario/usuario.module';
 
 
 
@@ -17,6 +18,7 @@ import { IngredienteModule } from '../ingrediente/ingrediente.module';
     CommonModule,
     SharedModule,
     IngredienteModule,
+    UsuarioModule,
     RouterModule
   ]
 })

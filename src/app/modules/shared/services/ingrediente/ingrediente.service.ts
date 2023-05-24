@@ -29,13 +29,29 @@ export class IngredienteService {
 
   /**
    * 
-   * @param body 
-   * @param id 
    */
   updateIngrediente(body: any, id:any){
     const END_POINT = `${BASE_URL}/Ingredientes/${id}`;
     return this.http.put(END_POINT, body);
   }
+
+  /**
+   * 
+   */
+  deleteIngrediente(id:any){
+    const END_POINT = `${BASE_URL}/Ingredientes/${id}`;
+    return this.http.delete(END_POINT);
+  }
+
+  /**
+   * 
+   */
+  getIngredienteByName(name:any){
+    const END_POINT = `${BASE_URL}/Ingrediente/${name}`;
+    return this.http.get(END_POINT);
+  }
+
+
 
 
 
