@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { IngredienteService } from '../../services/ingrediente/ingrediente.service';
+import { UsuarioService } from '../../services/usuario/usuario.service';
 
 @Component({
   selector: 'app-confirm',
@@ -11,7 +12,8 @@ export class ConfirmComponent implements OnInit{
 
   constructor(public dialogRef: MatDialogRef<ConfirmComponent>,
               @Inject (MAT_DIALOG_DATA) public data: any,
-              private ingredienteService: IngredienteService){
+              private ingredienteService: IngredienteService,
+              private usuarioService: UsuarioService){
 
   }
 
@@ -24,16 +26,33 @@ export class ConfirmComponent implements OnInit{
   }
 
   delete(){
-    if (this.data != null) {
-      this.ingredienteService.deleteIngrediente(this.data)
-          .subscribe( (data:any) => {
-            this.dialogRef.close(1);
-          }, (error: any) => {
-            this.dialogRef.close(2);
-          })
-    } else {
-      this.dialogRef.close(2);
+    switch(this.data.module){
+      case "usuario":
+        if (this.data != null) {
+          this.usuarioService.deleteUsuario(this.data.id)
+              .subscribe( (data:any) => {
+                this.dialogRef.close(1);
+              }, (error: any) => {
+                this.dialogRef.close(2);
+              })
+        } else {
+          this.dialogRef.close(2);
+        }
+        break;
+      case "ingrediente":
+        if (this.data != null) {
+          this.ingredienteService.deleteIngrediente(this.data.id)
+              .subscribe( (data:any) => {
+                this.dialogRef.close(1);
+              }, (error: any) => {
+                this.dialogRef.close(2);
+              })
+        } else {
+          this.dialogRef.close(2);
+        }
+        break;
     }
+    
   }
 
 }

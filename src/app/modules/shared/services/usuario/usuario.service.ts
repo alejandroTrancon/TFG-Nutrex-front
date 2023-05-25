@@ -33,4 +33,9 @@ export class UsuarioService {
     const END_POINT = `${BASE_URL}/Usuario/email/${email}`;
     return this.http.get(END_POINT)
   }
+
+  deleteUsuario(id:any){
+    const END_POINT = `${BASE_URL}/Usuarios/${id}`;
+    return this.http.delete(END_POINT);
+  }
 }

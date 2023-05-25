@@ -95,7 +95,6 @@ export class AddUsuarioComponent implements OnInit{
   }
 
   updateForm(data:any) {
-    console.log(data);
     this.usuarioForm = this.fb.group({
       id: [data.id, Validators.required],
       nombre: [data.nombre, Validators.required],
@@ -104,7 +103,7 @@ export class AddUsuarioComponent implements OnInit{
       telefono: [data.telefono, Validators.required],
       activo: [data.activo],
       bloqueado: [data.bloqueado],
-      rol: [data.rol.id, Validators.required],
+      rol: [data.rol.id, Validators.nullValidator],
     });
   }
 

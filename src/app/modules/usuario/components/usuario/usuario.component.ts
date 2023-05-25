@@ -97,6 +97,22 @@ export class UsuarioComponent {
     });
   }
 
+  delete(id: any){
+    const dialogRef = this.dialog.open(ConfirmComponent, {
+      width: '500px',
+      data: {id: id, module: "usuario"}
+    });
+
+    dialogRef.afterClosed().subscribe((result: any) => {
+      if(result == 1){
+        this.openSnackBar("Usuario eliminado", "Success");
+        this.listUsuarios();
+      }else if(result == 2){
+        this.openSnackBar("Usuario no eliminado", "Error");
+      }
+    });
+  }
+
   openSnackBar(message: string, action: string): MatSnackBarRef<SimpleSnackBar>{
     return this.snackBar.open(message, action, {
       duration: 2000

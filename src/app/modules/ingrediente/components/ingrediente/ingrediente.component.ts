@@ -89,7 +89,7 @@ export class IngredienteComponent {
   delete(id: any){
     const dialogRef = this.dialog.open(ConfirmComponent , {
       // width: '500px',
-      data: id
+      data: {id: id, module: "ingrediente"}
     });
 
     dialogRef.afterClosed().subscribe((result: any) => {
