@@ -1,0 +1,33 @@
+<div class="container mat-card" >
+    <mat-card>
+        <div class="container text-center">
+            <br><br><br>
+            <img mat-card-image src="../../../../assets/logoT.png" width="200px" height="200px" class="logo">
+            <br><br><br>
+            <h1 mat-card-title>Inicio de sesión</h1><br>
+            <form [formGroup]="logInForm">
+                <div class="container" fxFlex fxLayout="column" >
+                    <div>
+                        <mat-form-field class="full-width" appearance="outline">
+                            <input matInput type="text" placeholder="Email" formControlName="email" required>
+                        </mat-form-field>
+                        <br>
+                        <mat-form-field class="full-width">
+                            <input matInput type="password" placeholder="Contraseña" formControlName="password" required>
+                        </mat-form-field>
+                    </div>                    
+                    <br>
+                    <div>
+                        <div fxFlex fxLayout="row" fxLayoutAlign="space-evenly">
+                            <button mat-raised-button color="primary">Iniciar sesión</button>
+                            <button type="reset" class="ml-1" mat-raised-button color="accent">Limpiar</button>
+                        </div>    
+                    </div>
+                    <br>
+                    
+                </div>                    
+            </form>
+
+        </div>
+    </mat-card>
+</div>
