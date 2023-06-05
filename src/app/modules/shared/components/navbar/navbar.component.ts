@@ -12,7 +12,7 @@ export class NavbarComponent implements OnInit {
   mobileQuery: MediaQueryList;
 
   menuNav = [
-    {name: "Comidas", route: "comidas", icon: "fastfood"},
+    {name: "Platos", route: "platos", icon: "fastfood"},
     {name: "Ingredientes", route: "ingredientes", icon: "category"},
     {name: "Usuarios", route: "usuarios", icon: "person-outline"},
     // {name: "", route: "", icon: ""},

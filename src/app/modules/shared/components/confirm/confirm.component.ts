@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { IngredienteService } from '../../services/ingrediente/ingrediente.service';
 import { UsuarioService } from '../../services/usuario/usuario.service';
+import { PlatoService } from '../../services/plato/plato.service';
 
 @Component({
   selector: 'app-confirm',
@@ -13,7 +14,8 @@ export class ConfirmComponent implements OnInit{
   constructor(public dialogRef: MatDialogRef<ConfirmComponent>,
               @Inject (MAT_DIALOG_DATA) public data: any,
               private ingredienteService: IngredienteService,
-              private usuarioService: UsuarioService){
+              private usuarioService: UsuarioService,
+              private platoService: PlatoService){
 
   }
 
@@ -46,6 +48,19 @@ export class ConfirmComponent implements OnInit{
                 this.dialogRef.close(1);
               }, (error: any) => {
                 this.dialogRef.close(2);
+              })
+        } else {
+          this.dialogRef.close(2);
+        }
+        break;
+      case "plato":
+        if (this.data != null) {
+          this.platoService.deletePlato(this.data.id)
+              .subscribe( (data:any) => {
+                this.dialogRef.close(1);
+              }, (error: any) => {
+                this.dialogRef.close(2);
+                console.log(error);
               })
         } else {
           this.dialogRef.close(2);
