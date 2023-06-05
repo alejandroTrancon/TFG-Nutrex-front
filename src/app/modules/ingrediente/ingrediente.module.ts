@@ -4,7 +4,6 @@ import { IngredienteComponent } from './components/ingrediente/ingrediente.compo
 import { MaterialModule } from '../shared/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { bootstrapApplication } from '@angular/platform-browser';
 import { AddIngredienteComponent } from './components/add-ingrediente/add-ingrediente.component';
 
 

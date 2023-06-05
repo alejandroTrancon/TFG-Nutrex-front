@@ -32,7 +32,6 @@ export class IngredienteComponent {
   listIngredientes() {
   this.ingredienteService.listIngredientes()
       .subscribe(data => {
-        console.log("respuesta ingredientes: ", data);
         this.processIngredientesResponse(data);
       }, (error) => {
         console.log("error: ", error);
@@ -71,7 +70,7 @@ export class IngredienteComponent {
   }
 
   edit(element: IngredienteInterface){
-    const dialogRef = this.dialog.open(AddIngredienteComponent , {
+    const dialogRef = this.dialog.open(AddIngredienteComponent, {
       width: '500px',
       data: element
     });
@@ -118,7 +117,6 @@ export class IngredienteComponent {
     return this.snackBar.open(message, action, {
       duration: 2000
     });
-    
   }
 
 }
