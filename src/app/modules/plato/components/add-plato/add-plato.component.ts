@@ -22,18 +22,19 @@ export class AddPlatoComponent implements OnInit{
     private dialogRef: MatDialogRef<AddPlatoComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any){
 
-      this.platoForm = this.fb.group({
-        id: [''],
-        nombre: ['', Validators.required],
-        receta: ['', Validators.required],
-        ingredientesPlatos: this.fb.array([], Validators.required),
-      });
 
-      if(data != null){
-        this.updateForm(data);
-        this.estadoFormulario = "Actualizar";
-      }
+    this.platoForm = this.fb.group({
+      id: [''],
+      nombre: ['', Validators.required],
+      receta: ['', Validators.required],
+      ingredientesPlatos: this.fb.array([], Validators.required),
+    });
+
+    if(data != null){
+      this.updateForm(data);
+      this.estadoFormulario = "Actualizar";
     }
+  }
 
     ngOnInit(): void {
       if(this.estadoFormulario !== "Actualizar"){
@@ -47,15 +48,8 @@ export class AddPlatoComponent implements OnInit{
       return this.platoForm.get('ingredientesPlatos') as FormArray;
     }
 
-    agregarIngredienteFormGroup(){
-      return this.fb.group({
-        ingrediente: ['', Validators.required],
-        cantidad: ['', Validators.required]
-      });
-    }
-
     agregarIngrediente(){
-      const ingredientePlatoFormGroup  = this.fb.group({
+      const ingredientePlatoFormGroup = this.fb.group({
         ingrediente: ['', Validators.required],
         cantidad: ['', Validators.required],
       })
@@ -64,7 +58,6 @@ export class AddPlatoComponent implements OnInit{
     }
 
     eliminarIngrediente(index: number){
-      console.log("index ",index);
       this.ingredientesPlatos.removeAt(index);
     }
     

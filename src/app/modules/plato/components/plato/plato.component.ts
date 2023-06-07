@@ -17,15 +17,15 @@ export class PlatoComponent {
   constructor(private platoService: PlatoService, public dialog: MatDialog,
     private snackBar: MatSnackBar) {}
 
-    ngOnInit(): void{
-      this.listPlatos();
-    }
+  ngOnInit(): void{
+    this.listPlatos();
+  }
 
-    displayColumns: string[] = ['n', 'nombre', 'receta', 'ingredientes', 'acciones'];
-    dataSource = new MatTableDataSource<PlatoInterface>();
+  displayColumns: string[] = ['n', 'nombre', 'receta', 'ingredientes', 'acciones'];
+  dataSource = new MatTableDataSource<PlatoInterface>();
 
-    @ViewChild(MatPaginator)
-    paginator!: MatPaginator;
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;
 
   listPlatos(){
     this.platoService.listPlatos()
@@ -45,8 +45,6 @@ export class PlatoComponent {
       listPlatos.forEach((element: PlatoInterface) => {
         DATA_PLATO.push(element);
       });
-
-      console.log(listPlatos)
 
       this.dataSource = new MatTableDataSource<PlatoInterface>(DATA_PLATO);
       this.dataSource.paginator = this.paginator;

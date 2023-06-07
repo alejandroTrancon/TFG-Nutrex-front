@@ -7,6 +7,7 @@ import { SharedModule } from '../shared/shared.module';
 import { IngredienteModule } from '../ingrediente/ingrediente.module';
 import { UsuarioModule } from '../usuario/usuario.module';
 import { PlatoModule } from '../plato/plato.module';
+import { DietaModule } from '../dieta/dieta.module';
 
 
 
@@ -21,7 +22,8 @@ import { PlatoModule } from '../plato/plato.module';
     IngredienteModule,
     UsuarioModule,
     PlatoModule,
-    RouterModule
+    RouterModule,
+    DietaModule
   ]
 })
 export class DashboardModule { }
