@@ -4,10 +4,10 @@ import { DashboardComponent } from './pages/dashboard.component';
 import { HomeComponent } from './components/home/home.component';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
-import { IngredienteModule } from '../ingrediente/ingrediente.module';
-import { UsuarioModule } from '../usuario/usuario.module';
-import { PlatoModule } from '../plato/plato.module';
-import { DietaModule } from '../dieta/dieta.module';
+import { IngredienteModule } from './modules/ingrediente/ingrediente.module';
+import { PlatoModule } from './modules/plato/plato.module';
+import { UsuarioModule } from './modules/usuario/usuario.module';
+import { DietaModule } from './modules/dieta/dieta.module';
 
 
 

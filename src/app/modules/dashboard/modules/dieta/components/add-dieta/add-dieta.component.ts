@@ -1,8 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { PlatoModule } from 'src/app/modules/plato/plato.module';
-import { DietaInterface } from 'src/app/modules/shared/interfaces/dieta.interface';
 import { PlatoInterface } from 'src/app/modules/shared/interfaces/plato.interface';
 import { UsuarioInterface } from 'src/app/modules/shared/interfaces/usuario.interface';
 import { DietaService } from 'src/app/modules/shared/services/dieta/dieta.service';

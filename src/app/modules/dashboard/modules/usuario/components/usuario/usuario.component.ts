@@ -4,9 +4,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar, MatSnackBarRef, SimpleSnackBar } from '@angular/material/snack-bar';
 import { ConfirmComponent } from 'src/app/modules/shared/components/confirm/confirm.component';
 import { MatPaginator } from '@angular/material/paginator';
-import { UsuarioService } from '../../../shared/services/usuario/usuario.service';
-import { UsuarioInterface } from '../../../shared/interfaces/usuario.interface';
 import { AddUsuarioComponent } from '../add-usuario/add-usuario.component';
+import { UsuarioService } from 'src/app/modules/shared/services/usuario/usuario.service';
+import { UsuarioInterface } from 'src/app/modules/shared/interfaces/usuario.interface';
 
 
 @Component({
