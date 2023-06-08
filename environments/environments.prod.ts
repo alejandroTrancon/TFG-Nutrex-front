@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    BASE_URL: "https://nutrex-back.duckdns.org:7777/api/v1"
+    BASE_URL: "http://localhost:8080/api/v1"
 };

@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { DashboardModule } from './modules/dashboard/dashboard.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginModule } from './modules/login/login.module';
+import { AuthInterceptorProviders } from './modules/shared/services/auth.interceptor';
+import { PacienteModule } from './modules/paciente/paciente.module';
+import { NutricionistaModule } from './modules/nutricionista/nutricionista.module';
 
 @NgModule({
   declarations: [
@@ -16,9 +19,11 @@ import { LoginModule } from './modules/login/login.module';
     AppRoutingModule,
     DashboardModule,
     BrowserAnimationsModule,
-    LoginModule
+    LoginModule,
+    NutricionistaModule,
+    PacienteModule,
   ],
-  providers: [],
+  providers: [AuthInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

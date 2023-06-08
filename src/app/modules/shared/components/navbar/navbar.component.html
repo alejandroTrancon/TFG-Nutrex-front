@@ -29,13 +29,13 @@
                     <mat-menu #menu="matMenu">
                         <p mat-menu-item>
                             <mat-icon>face</mat-icon>
-                            Alejandro Trancón González
+                            {{loginService.getUser().nombre +" "+ loginService.getUser().apellidos}}
                         </p>
                         <p mat-menu-item>
                             <mat-icon></mat-icon>
-                            Administrador
+                            {{loginService.getUser().authorities[0].authority}}
                         </p>
-                        <button mat-menu-item>
+                        <button mat-menu-item (click)="this.logOut()">
                             <mat-icon>exit_to_app</mat-icon>
                             Cerrar sesion
                         </button>

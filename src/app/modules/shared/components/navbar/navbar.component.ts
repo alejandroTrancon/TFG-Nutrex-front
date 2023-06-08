@@ -1,6 +1,7 @@
 import { MediaMatcher } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { MediaMarshaller } from '@angular/flex-layout';
+import { LoginService } from '../../services/login/login.service';
 
 @Component({
   selector: 'app-navbar',
@@ -18,12 +19,23 @@ export class NavbarComponent implements OnInit {
     {name: "Usuarios", route: "usuarios", icon: "person-outline"},
   ]
 
-  constructor(media: MediaMatcher) {
+  constructor(media: MediaMatcher,
+         public loginService: LoginService) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
   }
 
   ngOnInit(): void {
+    console.log(this.loginService.getUser())
+
+    if(this.loginService.getRolUser() != "Administrador" ){
+      this.menuNav = []
+    }
     
+  }
+
+  public logOut() {
+    this.loginService.LogOutUser();
+    window.location.href='login'
   }
 
 }
