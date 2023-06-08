@@ -26,7 +26,7 @@ export class AddUsuarioComponent implements OnInit{
       apellidos: ['', Validators.required],
       email: ['', Validators.required],
       telefono: ['', Validators.required],
-      //password: ['', Validators.required],
+      password: ['', Validators.required],
       activo: [],
       bloqueado: [],
       rol: ['', Validators.required],
@@ -69,6 +69,7 @@ export class AddUsuarioComponent implements OnInit{
     usuario.append('apellidos', this.usuarioForm.get('apellidos')?.value);
     usuario.append('email', this.usuarioForm.get('email')?.value);
     usuario.append('telefono', this.usuarioForm.get('telefono')?.value);
+    usuario.append('password', this.usuarioForm.get('password')?.value);
     usuario.append('activo', activo);
     usuario.append('bloqueado', bloqueado);
     usuario.append('rol', this.usuarioForm.get('rol')?.value);
@@ -101,6 +102,7 @@ export class AddUsuarioComponent implements OnInit{
       apellidos: [data.apellidos, Validators.required],
       email: [data.email, Validators.required],
       telefono: [data.telefono, Validators.required],
+      password: [''],
       activo: [data.activo],
       bloqueado: [data.bloqueado],
       rol: [data.rol.id, Validators.nullValidator],
