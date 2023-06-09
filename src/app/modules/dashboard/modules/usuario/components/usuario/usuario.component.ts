@@ -117,7 +117,6 @@ export class UsuarioComponent {
     return this.snackBar.open(message, action, {
       duration: 2000
     });
-    
   }
 
 }

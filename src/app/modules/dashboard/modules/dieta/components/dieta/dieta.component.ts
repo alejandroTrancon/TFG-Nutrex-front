@@ -63,7 +63,7 @@ export class DietaComponent {
       }else if(result == 2){
         this.openSnackBar("Dieta no agregada", "Error");
       }
-    })
+    });
   }
   
   edit(element: DietaInterface){

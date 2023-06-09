@@ -59,10 +59,6 @@ export class AddUsuarioComponent implements OnInit{
       bloqueado = this.usuarioForm.get('bloqueado')?.value;
     }
 
-
-    // this.usuarioForm.get('activo')?.value === null ? activo = "true" :  activo = "false";
-    // this.usuarioForm.get('bloqueado')?.value === null ? bloqueado = "true" :  bloqueado = "false";
-    
     let usuario = new FormData();
     usuario.append('id', this.usuarioForm.get('id')?.value);
     usuario.append('nombre', this.usuarioForm.get('nombre')?.value);
@@ -75,7 +71,7 @@ export class AddUsuarioComponent implements OnInit{
     usuario.append('rol', this.usuarioForm.get('rol')?.value);
 
     if(usuario.get('id') != ""){
-      this.usuarioService.updateIngrediente(usuario, usuario.get('id')).subscribe( (data: any) => {
+      this.usuarioService.updateUsuario(usuario, usuario.get('id')).subscribe( (data: any) => {
         this.dialogRef.close(1);
       }, (error: any) => {
         this.dialogRef.close(2);
