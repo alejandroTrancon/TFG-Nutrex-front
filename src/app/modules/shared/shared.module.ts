@@ -6,16 +6,20 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { ConfirmComponent } from './components/confirm/confirm.component';
+import { ChangeDataComponent } from './components/change-data/change-data.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 
 @NgModule({
   declarations: [
     NavbarComponent,
-    ConfirmComponent
+    ConfirmComponent,
+    ChangeDataComponent
   ],
   exports: [
-    NavbarComponent
+    NavbarComponent,
   ],
   imports: [
     CommonModule,
@@ -23,6 +27,11 @@ import { ConfirmComponent } from './components/confirm/confirm.component';
     FlexLayoutModule,
     MaterialModule,
     HttpClientModule,
+    FlexLayoutModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatDialogModule
+
   ]
 })
 export class SharedModule { }

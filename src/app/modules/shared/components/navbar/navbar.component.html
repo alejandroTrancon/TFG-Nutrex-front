@@ -22,10 +22,10 @@
                         <mat-icon>person-outline</mat-icon>
                     </button>
                     <mat-menu #menu="matMenu">
-                        <p mat-menu-item>
+                        <button mat-menu-item (click)="this.changeData(loginService.getUser())">
                             <mat-icon>face</mat-icon>
                             {{loginService.getUser().nombre +" "+ loginService.getUser().apellidos}}
-                        </p>
+                        </button>
                         <p mat-menu-item>
                             <mat-icon></mat-icon>
                             {{loginService.getUser().authorities[0].authority}}
