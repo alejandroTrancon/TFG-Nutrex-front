@@ -92,10 +92,8 @@ export class AddPlatoComponent implements OnInit{
         });
       } else {
         this.platoService.savePlato(plato).subscribe( (plato: any) => {
-          console.log(plato);
           this.dialogRef.close(1);
         }, (error: any) => {
-          console.log(plato);
           this.dialogRef.close(2);
         });
       }

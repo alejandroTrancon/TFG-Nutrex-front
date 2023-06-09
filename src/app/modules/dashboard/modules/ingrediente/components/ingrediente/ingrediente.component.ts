@@ -34,7 +34,6 @@ export class IngredienteComponent {
       .subscribe(data => {
         this.processIngredientesResponse(data);
       }, (error) => {
-        console.log("error: ", error);
       })
   }
 

@@ -74,10 +74,10 @@ export class PlatoComponent {
 
     dialogRef.afterClosed().subscribe((result: any) => {
       if(result == 1){
-        this.openSnackBar("Usuario actualizado", "Success");
+        this.openSnackBar("Plato actualizado", "Success");
         this.listPlatos();
       }else if(result == 2){
-        this.openSnackBar("Usuario no actualizado", "Error");
+        this.openSnackBar("Plato no actualizado", "Error");
       }
     });
   }

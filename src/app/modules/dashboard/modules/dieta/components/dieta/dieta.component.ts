@@ -74,10 +74,10 @@ export class DietaComponent {
 
     dialogRef.afterClosed().subscribe((result: any) => {
       if(result == 1){
-        this.openSnackBar("Usuario actualizado", "Success");
+        this.openSnackBar("Dieta actualizada", "Success");
         this.listDietas();
       }else if(result == 2){
-        this.openSnackBar("Usuario no actualizado", "Error");
+        this.openSnackBar("Dieta no actualizada", "Error");
       }
     });
   }

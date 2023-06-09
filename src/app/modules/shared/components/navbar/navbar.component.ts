@@ -25,7 +25,6 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.loginService.getUser())
 
     if(this.loginService.getRolUser() != "Administrador" ){
       this.menuNav = []

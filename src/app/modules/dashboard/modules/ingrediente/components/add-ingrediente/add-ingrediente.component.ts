@@ -56,7 +56,6 @@ export class AddIngredienteComponent implements OnInit{
       });
     } else {
       this.ingredienteService.saveIngrediente(data).subscribe( (data: any) => {
-        console.log(data);
         this.dialogRef.close(1);
       }, (error: any) => {
         this.dialogRef.close(2);

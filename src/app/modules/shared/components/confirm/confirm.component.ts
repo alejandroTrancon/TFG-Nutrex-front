@@ -62,7 +62,6 @@ export class ConfirmComponent implements OnInit{
                 this.dialogRef.close(1);
               }, (error: any) => {
                 this.dialogRef.close(2);
-                console.log(error);
               })
         } else {
           this.dialogRef.close(2);
@@ -75,7 +74,6 @@ export class ConfirmComponent implements OnInit{
                   this.dialogRef.close(1);
                 }, (error: any) => {
                   this.dialogRef.close(2);
-                  console.log(error);
                 })
           } else {
             this.dialogRef.close(2);
