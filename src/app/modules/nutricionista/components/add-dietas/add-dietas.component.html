@@ -1,0 +1,105 @@
+<h1 mat-dialog-title class="alinear">Añadir dieta</h1>
+<mat-dialog-content>
+    <form [formGroup]="dietaForm">
+        <input matInput formControlName="id" hidden>
+        
+        <div formArrayName="platosDietas">
+            <div *ngFor="let platosDieta of platosDietas.controls; let i = index" [formGroupName]="i">
+                <mat-divider></mat-divider>
+                <br>
+                <mat-form-field>
+                    <mat-label>Momento del dia</mat-label>
+                    <mat-select formControlName="momentoDia">
+                        <mat-option *ngFor="let momentoDia of momentosDia; let i = index" [value]="i">
+                            {{momentoDia}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+                    <mat-label>Plato {{diasSemana[0]}}</mat-label>
+                    <mat-select formControlName="plato0">
+                        <mat-option *ngFor="let plato of platos" [value]="plato.id">
+                            {{ plato.nombre }}
+                        </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Plato {{diasSemana[1]}}</mat-label>
+                    <mat-select formControlName="plato1">
+                        <mat-option *ngFor="let plato of platos" [value]="plato.id">
+                            {{plato.nombre}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Plato {{diasSemana[2]}}</mat-label>
+                    <mat-select formControlName="plato2">
+                        <mat-option *ngFor="let plato of platos" [value]="plato.id">
+                            {{plato.nombre}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Plato {{diasSemana[3]}}</mat-label>
+                    <mat-select formControlName="plato3">
+                        <mat-option *ngFor="let plato of platos" [value]="plato.id">
+                            {{plato.nombre}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Plato {{diasSemana[4]}}</mat-label>
+                    <mat-select formControlName="plato4">
+                        <mat-option *ngFor="let plato of platos" [value]="plato.id">
+                            {{plato.nombre}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Plato {{diasSemana[5]}}</mat-label>
+                    <mat-select formControlName="plato5">
+                        <mat-option *ngFor="let plato of platos" [value]="plato.id">
+                            {{plato.nombre}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Plato {{diasSemana[6]}}</mat-label>
+                    <mat-select formControlName="plato6">
+                        <mat-option *ngFor="let plato of platos" [value]="plato.id">
+                            {{plato.nombre}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <br>
+
+                <button mat-icon-button color="warn" (click)="eliminarPlatos(i)"><mat-icon>delete</mat-icon></button>
+            </div>
+        </div>
+        <div>
+            
+            <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
+                <br>
+                <button mat-raised-button color="primary" (click)="agregarPlatos()">Agregar comida</button>
+            </div>
+        </div>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-button color="primary" (click)="onSave()" [disabled]="dietaForm.invalid">
+        <mat-icon>save</mat-icon> Guardar
+    </button>
+
+    <button mat-button color="primary" (click)="onCancel()">
+        <mat-icon>cancel</mat-icon> Cancel
+    </button>
+</mat-dialog-actions>

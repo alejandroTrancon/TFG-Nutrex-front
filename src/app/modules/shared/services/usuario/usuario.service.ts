@@ -24,7 +24,7 @@ export class UsuarioService {
     return this.http.post(END_POINT, body);
   }
 
-  updateIngrediente(body: any, id:any){
+  updateUsuario(body: any, id:any){
     const END_POINT = `${BASE_URL}/Usuarios/${id}`;
     return this.http.put(END_POINT, body);
   }
@@ -37,5 +37,10 @@ export class UsuarioService {
   deleteUsuario(id:any){
     const END_POINT = `${BASE_URL}/Usuarios/${id}`;
     return this.http.delete(END_POINT);
+  }
+
+  changeData(body: any){
+    const END_POINT = `${BASE_URL}/Usuarios/ChangeData`;
+    return this.http.put(END_POINT, body);
   }
 }

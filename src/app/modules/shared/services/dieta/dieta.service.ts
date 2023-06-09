@@ -38,4 +38,9 @@ export class DietaService {
     const END_POINT = `${BASE_URL}/Dietas/${id}`;
     return this.http.delete(END_POINT);
   }
+
+  saveDietaFromNutri(body:any){
+    const END_POINT = `${BASE_URL}/Nutricionistas/Dieta`;
+    return this.http.post(END_POINT, body);
+  }
 }

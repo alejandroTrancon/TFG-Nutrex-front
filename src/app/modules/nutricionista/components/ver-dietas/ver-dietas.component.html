@@ -1,0 +1,36 @@
+<mat-card>
+    <mat-card-content>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+            <ng-container matColumnDef="headerRow"></ng-container>
+            <mat-header-row *matHeaderRowDef="[]"></mat-header-row>
+        
+            <ng-container matColumnDef="n">
+                <th mat-header-cell *matHeaderCellDef class="alinear"></th>
+                <td mat-cell *matCellDef="let i=index" class="alinear">{{ "Dieta "+(i+1) }}</td>
+            </ng-container>
+        
+            <ng-container matColumnDef="fechaInicio">
+                <th mat-header-cell *matHeaderCellDef class="alinear">Fecha de asignacion</th>
+                <td mat-cell *matCellDef="let element" class="alinear">{{ element.createdAt }}</td>
+            </ng-container>
+        
+            <ng-container matColumnDef="acciones">
+                <th mat-header-cell *matHeaderCellDef class="alinear"></th>   
+                <td mat-cell *matCellDef="let element" class="alinear">
+                    <button mat-icon-button color="accent" (click)="generatePdf(element.id, true)">
+                        <mat-icon aria-label="Ver">remove_red_eye</mat-icon>
+                    </button>
+                    <button mat-icon-button color="accent" (click)="generatePdf(element.id, false)">
+                        <mat-icon aria-label="Editar">arrow_downward</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
+        
+            <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: ['n', 'fechaInicio', 'acciones'];"></tr>
+            
+        
+        </table>
+    </mat-card-content>
+</mat-card>
