@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'environments/environments';
 
@@ -26,7 +26,13 @@ export class DietaService {
     return this.http.put(END_POINT, body);
   }
 
-
+  getPDF(id:any){
+    const END_POINT = `${BASE_URL}/generarPdf/${id}`;
+    return this.http.get(END_POINT, {
+      responseType: 'arraybuffer',
+      headers: new HttpHeaders().append('Content-Type', 'application/pdf')
+    });
+  }
 
   deleteDieta(id:any){
     const END_POINT = `${BASE_URL}/Dietas/${id}`;
