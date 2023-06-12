@@ -9,6 +9,7 @@ import { LoginModule } from './modules/login/login.module';
 import { AuthInterceptorProviders } from './modules/shared/services/auth.interceptor';
 import { PacienteModule } from './modules/paciente/paciente.module';
 import { NutricionistaModule } from './modules/nutricionista/nutricionista.module';
+import { ErrorModule } from './modules/error/error.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { NutricionistaModule } from './modules/nutricionista/nutricionista.modul
     LoginModule,
     NutricionistaModule,
     PacienteModule,
+    ErrorModule
   ],
   providers: [AuthInterceptorProviders],
   bootstrap: [AppComponent]
