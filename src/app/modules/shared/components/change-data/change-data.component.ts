@@ -24,10 +24,10 @@ export class ChangeDataComponent implements OnInit{
 
     this.changeDataForm = this.fb.group({
       id: [data.id],
-      nombre: [data.nombre, Validators.required],
-      apellidos: [data.apellidos, Validators.required],
-      email: [data.email, Validators.required],
-      telefono: [data.telefono, Validators.required],
+      nombre: ['', Validators.compose([Validators.required, Validators.maxLength(50)])],
+      apellidos: ['', Validators.compose([Validators.required, Validators.maxLength(75)])],
+      email: ['', Validators.compose([Validators.required, Validators.maxLength(75)])],
+      telefono: ['', Validators.compose([Validators.required, Validators.maxLength(20)])],
       password: [''],
       password2: [''],
     })
@@ -51,10 +51,10 @@ export class ChangeDataComponent implements OnInit{
 
     this.usuarioService.changeData(usuario).subscribe((data: any) => {
       this.loginService.setUser(data.usuarioResponse.usuario[0]);
-          this.dialogRef.close(1);
-      }, (error: any) => {
-          this.dialogRef.close(2);
-      });
+      this.dialogRef.close(1);
+    }, (error: any) => {
+      this.dialogRef.close(2);
+    });
   }
 
   onCancel(){

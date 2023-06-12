@@ -19,12 +19,12 @@ export class AddIngredienteComponent implements OnInit{
     
     this.ingredienteForm = this.fb.group( {
       id: [''],
-      nombre: ['', Validators.required],
-      hidratos: ['', Validators.required],
-      proteinas: ['', Validators.required],
-      grasas: ['', Validators.required],
-      sal: ['', Validators.required],
-      fibra: ['', Validators.required],
+      nombre: ['', Validators.compose([Validators.required, Validators.maxLength(100)])],
+      hidratos: ['', Validators.compose([Validators.required, Validators.maxLength(5)])],
+      proteinas: ['', Validators.compose([Validators.required, Validators.maxLength(5)])],
+      grasas: ['', Validators.compose([Validators.required, Validators.maxLength(5)])],
+      sal: ['', Validators.compose([Validators.required, Validators.maxLength(5)])],
+      fibra: ['', Validators.compose([Validators.required, Validators.maxLength(5)])],
       
     });
 

@@ -1,7 +1,7 @@
 <div>
     <mat-toolbar color="primary">
         <!-- <button mat-icon-button><mat-icon>menu</mat-icon></button> -->
-        <button mat-button [routerLink]="'home'">
+        <button mat-button>
             <h1 class="app-name">Nutrex</h1>
         </button>
 
@@ -26,10 +26,6 @@
                             <mat-icon>face</mat-icon>
                             {{loginService.getUser().nombre +" "+ loginService.getUser().apellidos}}
                         </button>
-                        <p mat-menu-item>
-                            <mat-icon></mat-icon>
-                            {{loginService.getUser().authorities[0].authority}}
-                        </p>
                         <button mat-menu-item (click)="this.logOut()">
                             <mat-icon>exit_to_app</mat-icon>
                             Cerrar sesion

@@ -25,8 +25,8 @@ export class AddPlatoComponent implements OnInit{
 
     this.platoForm = this.fb.group({
       id: [''],
-      nombre: ['', Validators.required],
-      receta: ['', Validators.required],
+      nombre: ['', Validators.compose([Validators.required, Validators.maxLength(100)])],
+      receta: ['', Validators.compose([Validators.required, Validators.maxLength(300)])],
       ingredientesPlatos: this.fb.array([], Validators.required),
     });
 

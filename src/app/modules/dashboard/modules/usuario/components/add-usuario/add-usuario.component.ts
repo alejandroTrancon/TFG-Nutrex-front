@@ -22,10 +22,10 @@ export class AddUsuarioComponent implements OnInit{
   
     this.usuarioForm = this.fb.group({
       id: [''],
-      nombre: ['', Validators.required],
-      apellidos: ['', Validators.required],
-      email: ['', Validators.required],
-      telefono: ['', Validators.required],
+      nombre: ['', Validators.compose([Validators.required, Validators.maxLength(50)])],
+      apellidos: ['', Validators.compose([Validators.required, Validators.maxLength(75)])],
+      email: ['', Validators.compose([Validators.required, Validators.maxLength(75)])],
+      telefono: ['', Validators.compose([Validators.required, Validators.maxLength(20)])],
       password: ['', Validators.required],
       activo: [],
       bloqueado: [],
