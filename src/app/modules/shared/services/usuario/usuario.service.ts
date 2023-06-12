@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'environments/environments';
+import { environment } from 'src/environments/environments';
 
 const BASE_URL = environment.BASE_URL;
 
@@ -11,9 +11,6 @@ export class UsuarioService {
 
   constructor(private http: HttpClient) { }
 
-  /**
-   * 
-   */
   listUsuarios(){
     const END_POINT = `${BASE_URL}/Usuarios`;
     return this.http.get(END_POINT);
